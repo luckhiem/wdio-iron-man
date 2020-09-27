@@ -45,6 +45,7 @@ module.exports = [
           modifyVars: {
             'primary-color': '#00b14f',
             'link-color': '#00b14f',
+            'layout-header-background': '#006B30',
             'border-radius-base': '2px',
           },
           javascriptEnabled: true,
