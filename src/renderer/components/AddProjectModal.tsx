@@ -52,6 +52,7 @@ const AddProject = ({ isVisible = false, onClose }: {
                     .validateFields()
                     .then((values) => {
                         console.log(values)
+                        onClose && onClose();
                     })
                     .catch((info) => {
                         console.log('Validate Failed:', info);
@@ -77,13 +78,11 @@ const AddProject = ({ isVisible = false, onClose }: {
 
                 <Form.Item label="Upload project">
                     <Form.Item name="projectFile" valuePropName="fileList" getValueFromEvent={normFile} noStyle>
-                        <Upload.Dragger name="files" action="/upload.do">
+                        <Upload.Dragger name="files" action="https://run.mocky.io/v3/c3aec9ea-e084-48f9-bbb2-ce04251a2aa1" directory>
                             <p className="ant-upload-drag-icon">
                                 <InboxOutlined />
                             </p>
-                            <p className="ant-upload-text">Click or drag file to this area to upload</p>
-                            <p className="ant-upload-hint">Support for a single or bulk upload.</p>
-                        </Upload.Dragger>
+                            <p className="ant-upload-text">Click or drag folder to this area to upload</p>                        </Upload.Dragger>
                     </Form.Item>
                 </Form.Item>
             </Form>
