@@ -78,7 +78,7 @@ const AddProject = ({ isVisible = false, onClose }: {
 
                 <Form.Item label="Upload project">
                     <Form.Item name="projectFile" valuePropName="fileList" getValueFromEvent={normFile} noStyle>
-                        <Upload.Dragger name="files" action="https://run.mocky.io/v3/c3aec9ea-e084-48f9-bbb2-ce04251a2aa1" directory>
+                        <Upload.Dragger name="files" directory>
                             <p className="ant-upload-drag-icon">
                                 <InboxOutlined />
                             </p>

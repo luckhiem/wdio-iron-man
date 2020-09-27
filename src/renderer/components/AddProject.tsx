@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { Button} from 'antd';
+import { Button } from 'antd';
 import AddProjectModal from './AddProjectModal';
+import { ipcRenderer } from 'electron';
 
 const AddProject = () => {
   const [modalVisible, setModalVisible] = useState(false);
@@ -8,13 +9,15 @@ const AddProject = () => {
     <div>
       <Button
         type="primary"
-        onClick={() => setModalVisible(true)}
+        onClick={() => {
+          ipcRenderer.send('show-open-dialog', null);
+        }}
       >Add Project
       </Button>
-      <AddProjectModal
+      {/* <AddProjectModal
         isVisible={modalVisible}
         onClose={() => setModalVisible(false)}
-      />
+      /> */}
     </div>
 
   );
