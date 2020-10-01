@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Button } from 'antd';
 import AddProjectModal from './AddProjectModal';
-import { ipcRenderer } from 'electron';
+import { ipcRenderer, IpcRendererEvent } from 'electron';
 
 const AddProject = () => {
   const [modalVisible, setModalVisible] = useState(false);
@@ -11,6 +11,11 @@ const AddProject = () => {
         type="primary"
         onClick={() => {
           ipcRenderer.send('show-open-dialog', null);
+          const listener = (event: IpcRendererEvent, response: any )=>{
+            console.log(event);
+            ipcRenderer.removeListener('show-open-dialog', listener);
+          }
+          ipcRenderer.on('show-open-dialog', listener);
         }}
       >Add Project
       </Button>

@@ -1,6 +1,6 @@
 import React from 'react';
 import './app.css';
-import { Layout, Menu, Row, Col, Button } from 'antd';
+import { Layout, Menu, Row, Col } from 'antd';
 import AddProject from './components/AddProject';
 
 const { Header, Content, Footer } = Layout;
