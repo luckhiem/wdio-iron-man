@@ -1,11 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { ipcRenderer, IpcRendererEvent } from 'electron';
 import {
     Form,
-    Upload,
     Input,
     Modal,
+    Button
 } from 'antd';
-import { InboxOutlined } from '@ant-design/icons';
+import { UploadOutlined } from '@ant-design/icons';
 
 const formItemLayout = {
     labelCol: {
@@ -77,13 +78,14 @@ const AddProject = ({ isVisible = false, onClose }: {
                 </Form.Item>
 
                 <Form.Item label="Upload project">
-                    <Form.Item name="projectFile" valuePropName="fileList" getValueFromEvent={normFile} noStyle>
-                        <Upload.Dragger name="files" directory>
-                            <p className="ant-upload-drag-icon">
-                                <InboxOutlined />
-                            </p>
-                            <p className="ant-upload-text">Click or drag folder to this area to upload</p>                        </Upload.Dragger>
-                    </Form.Item>
+                    <Button icon={<UploadOutlined />} onClick={() => {
+                        ipcRenderer.send('show-open-dialog', null);
+                        const listener = (event: IpcRendererEvent, response: any) => {
+                            console.log(event);
+                            ipcRenderer.removeListener('show-open-dialog', listener);
+                        }
+                        ipcRenderer.on('show-open-dialog', listener);
+                    }}>Upload Directory</Button>
                 </Form.Item>
             </Form>
         </Modal>
