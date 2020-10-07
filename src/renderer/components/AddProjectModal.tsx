@@ -37,6 +37,7 @@ const AddProject = ({ isVisible = false, onClose }: {
             forceRender={true}
             onCancel={() => {
                 form.resetFields();
+                setDirPath(null);
                 onClose && onClose();
             }}
             onOk={() => {
