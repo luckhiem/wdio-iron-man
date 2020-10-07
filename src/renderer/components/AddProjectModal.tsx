@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { ipcRenderer, IpcRendererEvent } from 'electron';
+const fs = require('fs');
 import {
     Form,
     Input,
@@ -75,6 +76,9 @@ const AddProject = ({ isVisible = false, onClose }: {
                         const listener = (event: IpcRendererEvent, response: any) => {
                             console.log('response', response.file);
                             setDirPath(response.file);
+                            fs.readdirSync(response.file).forEach((file: string) => {
+                                console.log(file);
+                              });
                             ipcRenderer.removeListener('show-open-dialog', listener);
                         }
                         ipcRenderer.on('reply-show-open-dialog', listener);
