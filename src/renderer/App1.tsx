@@ -1,18 +1,14 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import 'antd/dist/antd.css';
 import './index.css';
-import { Layout, Menu, Breadcrumb } from 'antd';
+import { Layout, Menu } from 'antd';
+import AddProject from './components/AddProject';
 import {
   DesktopOutlined,
   PieChartOutlined,
-  FileOutlined,
-  TeamOutlined,
-  UserOutlined,
 } from '@ant-design/icons';
 
 const { Header, Content, Footer, Sider } = Layout;
-const { SubMenu } = Menu;
 
 class App1 extends React.Component {
   state = {
@@ -39,8 +35,10 @@ class App1 extends React.Component {
           </Menu>
         </Sider>
         <Layout className="site-layout">
-          <Header className="site-layout-background" style={{ padding: 0 }} />
-          <Content style={{ margin: '0 16px' }}>
+          <Header className="site-layout-header">
+            <AddProject />
+          </Header>
+          <Content style={{ margin: '16px 16px' }}>
             <div className="site-layout-background" style={{ padding: 24, minHeight: '100vh' }}>
               Bill is a cat.
             </div>

@@ -2,11 +2,21 @@
     height: 32px;
     background: rgba(255, 255, 255, 0.2);
     margin: 16px;
-  }
-  
-  .site-layout .site-layout-background {
+}
+
+.site-layout .ant-layout-header {
     background: #fff;
-  }
-    [data-theme="dark"] .site-layout .site-layout-background {
-      background: #141414;
-    }
+    border-bottom: 1px solid #dadade;
+    display: grid;
+    align-items: center;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.12);
+}
+
+.site-layout .site-layout-background {
+    background: #fff;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.12);
+}
+
+[data-theme="dark"] .site-layout .site-layout-background {
+    background: #141414;
+}
