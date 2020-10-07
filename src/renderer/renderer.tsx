@@ -1,10 +1,10 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import '../main/index.scss'
 import App from './App';
-import App1 from './App1';
 import 'antd/dist/antd.less';
 
 ReactDOM.render(
-    <App1 />,
+    <App />,
   document.getElementById('app')
 )
