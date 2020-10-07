@@ -1,30 +1,22 @@
 import { ipcMain, dialog, app, OpenDialogOptions } from 'electron';
-import fs from 'fs';
 import path from 'path';
 
 ipcMain.on('show-open-dialog', (event, arg) => {
+    let globalFile: string;
     const options: OpenDialogOptions = {
         title: 'Select the File to be uploaded',
         defaultPath: path.join(__dirname, '../assets/'),
         buttonLabel: 'Upload',
-        properties: ['openFile']
+        properties: ['openDirectory']
     };
 
 
     dialog.showOpenDialog(null, options).then((file: any) => {
-        console.log('filePaths', file)
+        console.log('showOpenDialog', file)
         event.sender.send('open-dialog-paths-selected', file);
         if (!file.canceled) {
-            var globalFile: string;
             globalFile = file.filePaths[0].toString();
-            fs.readFile(globalFile, { encoding: 'utf-8' }, function (err, data) {
-                if (!err) {
-                    console.log('received data: ' + data);
-                } else {
-                    console.log(err);
-                }
-            });
-            console.log('global', global);
+            event.reply('reply-show-open-dialog', { status: 'SUCCESS', file: globalFile });
         }
     })
 })

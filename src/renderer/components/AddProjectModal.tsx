@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { ipcRenderer, IpcRendererEvent } from 'electron';
 import {
     Form,
@@ -22,6 +22,7 @@ const AddProject = ({ isVisible = false, onClose }: {
     onClose?: () => void;
     saveSetting?: (settingData: any) => void;
 }) => {
+    const [dirPath, setDirPath] = useState(null)
     const [form] = Form.useForm();
     const onFinish = (values: any) => {
         console.log('Received values of form: ', values);
@@ -71,11 +72,13 @@ const AddProject = ({ isVisible = false, onClose }: {
                     <Button icon={<UploadOutlined />} onClick={() => {
                         ipcRenderer.send('show-open-dialog', null);
                         const listener = (event: IpcRendererEvent, response: any) => {
-                            console.log(event);
+                            console.log('response', response.file);
+                            setDirPath(response.file);
                             ipcRenderer.removeListener('show-open-dialog', listener);
                         }
-                        ipcRenderer.on('show-open-dialog', listener);
+                        ipcRenderer.on('reply-show-open-dialog', listener);
                     }}>Upload Directory</Button>
+                    <p style={{marginTop: '4px'}}>{dirPath}</p>
                 </Form.Item>
             </Form>
         </Modal>
