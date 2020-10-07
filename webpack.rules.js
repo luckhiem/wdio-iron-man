@@ -1,3 +1,5 @@
+const { getThemeVariables } = require('antd/dist/theme');
+
 module.exports = [
   // Add support for native node modules
   {
@@ -42,12 +44,9 @@ module.exports = [
       loader: 'less-loader', // compiles Less to CSS
       options: {
         lessOptions: { // If you are using less-loader@5 please spread the lessOptions to options directly
-          modifyVars: {
-            'primary-color': '#00b14f',
-            'link-color': '#00b14f',
-            'layout-header-background': '#005A28',
-            'border-radius-base': '2px',
-          },
+          modifyVars: getThemeVariables({
+            compact: true, // 开启紧凑模式
+          }),
           javascriptEnabled: true,
         },
       },
