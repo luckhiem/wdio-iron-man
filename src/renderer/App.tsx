@@ -1,7 +1,7 @@
 import React from 'react';
 import 'antd/dist/antd.css';
 import './index.css';
-import { Layout, Menu } from 'antd';
+import { Layout, Menu, Row, Col } from 'antd';
 import AddProject from './components/AddProject';
 import {
   DesktopOutlined,
@@ -36,7 +36,14 @@ class App1 extends React.Component {
         </Sider>
         <Layout className="site-layout">
           <Header className="site-layout-header">
-            <AddProject />
+            <Row>
+              <Col span={22}>
+                <h1>Project Details</h1>
+              </Col>
+              <Col span={2}>
+                <AddProject />
+              </Col>
+            </Row>
           </Header>
           <Content style={{ margin: '16px 16px' }}>
             <div className="site-layout-background" style={{ padding: 24, minHeight: '100vh' }}>

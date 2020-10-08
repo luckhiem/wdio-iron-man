@@ -5,7 +5,7 @@
 }
 
 .site-layout .ant-layout-header {
-    background: #fff;
+    background: rgba(255, 255, 255, 0.2);
     border-bottom: 1px solid #dadade;
     display: grid;
     align-items: center;
