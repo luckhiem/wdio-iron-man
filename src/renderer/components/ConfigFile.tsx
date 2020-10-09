@@ -1,22 +1,13 @@
 import React from 'react';
-import { Form, Input, InputNumber, Button } from 'antd';
+import { Form, Input, Card, Button, Col, Row } from 'antd';
+import '../css/ConfigFile.css'
 
 const layout = {
   labelCol: {
-    span: 8,
+    span: 4,
   },
   wrapperCol: {
     span: 8,
-  },
-};
-const validateMessages = {
-  required: '${label} is required!',
-  types: {
-    email: '${label} is not validate email!',
-    number: '${label} is not a validate number!',
-  },
-  number: {
-    range: '${label} must be between ${min} and ${max}',
   },
 };
 
@@ -24,18 +15,30 @@ const ConfigFile = () => {
   return (
     <Form {...layout} name="nest-messages" style={{ padding: '24px' }}>
       <Form.Item name={['user', 'configFile']} label="Config Files">
-        <Input disabled={true}/>
+        <Input disabled={true} />
       </Form.Item>
       <Form.Item name={['user', 'testCommand']} label="Test Command">
-        <Input />
+        <Input defaultValue={'./node_modules/bin/wdio'}/>
       </Form.Item>
       <Form.Item name={['user', 'specFiles']} label="Spec Files">
-        <InputNumber />
+        <Input disabled={true} />
       </Form.Item>
-      <Form.Item name={['user', 'capabilities']} label="Capabilities">
-        <Input />
-      </Form.Item>
-      <Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 8 }}>
+      <Form.Item label="Capabilities" wrapperCol={{ span: 16 }}>
+        <div className="site-card-wrapper">
+          <Row gutter={16}>
+            <Col span={8}>
+              <Card title="Chrome">Card content</Card>
+            </Col>
+            <Col span={8}>
+              <Card title="Firefox"> Card content</Card>
+            </Col>
+            <Col span={8}>
+              <Card title="Safari">Card content</Card>
+            </Col>
+          </Row>
+        </div>,
+        </Form.Item>
+      <Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 4 }}>
         <Button type="primary" htmlType="submit">
           Run Test
         </Button>
