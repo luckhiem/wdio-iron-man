@@ -22,51 +22,22 @@ const validateMessages = {
 
 const ConfigFile = () => {
   return (
-    <Form {...layout} name="nest-messages" validateMessages={validateMessages} style={{ padding: '24px' }}>
-      <Form.Item
-        name={['user', 'name']}
-        label="Name"
-        rules={[
-          {
-            required: true,
-          },
-        ]}
-      >
+    <Form {...layout} name="nest-messages" style={{ padding: '24px' }}>
+      <Form.Item name={['user', 'configFile']} label="Config Files">
+        <Input disabled={true}/>
+      </Form.Item>
+      <Form.Item name={['user', 'testCommand']} label="Test Command">
         <Input />
       </Form.Item>
-      <Form.Item
-        name={['user', 'email']}
-        label="Email"
-        rules={[
-          {
-            type: 'email',
-          },
-        ]}
-      >
-        <Input />
-      </Form.Item>
-      <Form.Item
-        name={['user', 'age']}
-        label="Age"
-        rules={[
-          {
-            type: 'number',
-            min: 0,
-            max: 99,
-          },
-        ]}
-      >
+      <Form.Item name={['user', 'specFiles']} label="Spec Files">
         <InputNumber />
       </Form.Item>
-      <Form.Item name={['user', 'website']} label="Website">
+      <Form.Item name={['user', 'capabilities']} label="Capabilities">
         <Input />
-      </Form.Item>
-      <Form.Item name={['user', 'introduction']} label="Introduction">
-        <Input.TextArea />
       </Form.Item>
       <Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 8 }}>
         <Button type="primary" htmlType="submit">
-          Submit
+          Run Test
         </Button>
       </Form.Item>
     </Form>

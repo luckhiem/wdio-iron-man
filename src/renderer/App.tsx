@@ -51,7 +51,7 @@ class App1 extends React.Component {
               <ProjectDetail />
             </div>
           </Content>
-          <Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Footer>
+          <Footer style={{ textAlign: 'center' }}>Created by Khiem Luc ©2020</Footer>
         </Layout>
       </Layout>
     );
