@@ -3,6 +3,7 @@ import 'antd/dist/antd.css';
 import './index.css';
 import { Layout, Menu, Row, Col } from 'antd';
 import AddProject from './components/AddProject';
+import ProjectDetail from './components/ProjectDetail';
 import {
   DesktopOutlined,
   PieChartOutlined,
@@ -47,7 +48,7 @@ class App1 extends React.Component {
           </Header>
           <Content style={{ margin: '16px 16px' }}>
             <div className="site-layout-background" style={{ padding: 24, minHeight: '100vh' }}>
-              Bill is a cat.
+              <ProjectDetail />
             </div>
           </Content>
           <Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Footer>

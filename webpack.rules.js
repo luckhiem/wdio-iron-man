@@ -44,9 +44,9 @@ module.exports = [
       loader: 'less-loader', // compiles Less to CSS
       options: {
         lessOptions: { // If you are using less-loader@5 please spread the lessOptions to options directly
-          modifyVars: getThemeVariables({
-            compact: true, // 开启紧凑模式
-          }),
+          // modifyVars: getThemeVariables({
+          //   compact: true, // 开启紧凑模式
+          // }),
           javascriptEnabled: true,
         },
       },
